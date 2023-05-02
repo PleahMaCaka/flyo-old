@@ -1,14 +1,14 @@
 {
-  "name": "vite-react-electron",
-  "description": "Vite + React + Electron Template!",
+  "name": "flyo",
+  "description": "fly!",
   "version": "0.1.0",
+  "license": "MIT",
   "author": {
     "name": "PleahMaCaka",
     "email": "pleahmacaka@gmail.com"
   },
-  "homepage": "https://github.com/pleahmacaka/vite-react-electron",
-  "license": "MIT",
-  "packageManager": "pnpm@8.2.0",
+  "homepage": "https://github.com/pleahmacaka/flyo",
+  "packageManager": "pnpm@8.4.0",
   "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
@@ -22,14 +22,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "^18.16.3",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@vitejs/plugin-react-swc": "^3.3.0",
-    "electron": "^24.1.0",
+    "electron": "^24.1.3",
     "electron-builder": "^23.6.0",
     "typescript": "^5.0.4",
-    "vite": "^4.2.1",
-    "vite-plugin-electron": "^0.11.1"
+    "vite": "^4.3.4",
+    "vite-plugin-electron": "^0.11.2"
   }
 }
