@@ -1,4 +1,6 @@
-import { app, BrowserWindow, Menu, Tray } from 'electron'
+import { app, BrowserWindow, Menu, Tray, globalShortcut } from 'electron'
+import { state } from './state'
+import { Logger } from '@pleahmacaka/logger'
 
 const isDev: boolean = process.env.VITE_DEV_SERVER_URL !== undefined
 
@@ -13,7 +15,8 @@ async function createWindow() {
         transparent: true,
         autoHideMenuBar: true,
         skipTaskbar: true,
-        frame: false
+        frame: false,
+        show: false
     })
 
     const url = isDev ?
@@ -26,7 +29,7 @@ async function createWindow() {
     else await win.loadFile(url.toString())
 }
 
-function createTray() {
+async function createTray() {
     const tray = new Tray("./public/icon.ico")
     tray.setToolTip("Flyo")
     tray.setContextMenu(Menu.buildFromTemplate([
@@ -40,26 +43,30 @@ function createTray() {
 }
 
 async function buildElectron() {
+    await createTray()
     await createWindow()
-    createTray()
+
+    await registerShortcuts()
+}
+
+async function registerShortcuts() {
+    globalShortcut.register("CommandOrControl+`", () => {
+        if (state.isShowing) {
+            BrowserWindow.getAllWindows()[0].hide()
+            state.isShowing = false
+            Logger.info("Hiding window")
+        } else {
+            BrowserWindow.getAllWindows()[0].show()
+            state.isShowing = true
+            Logger.info("Showing window")
+        }
+    })
 }
 
 app.whenReady().then(async () => {
     await buildElectron()
 
     app.on("ready", async () => {
-        await buildElectron()
+        Logger.info("App is ready")
     })
-
-    app.on('activate', async () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            await buildElectron()
-        }
-    })
-})
-
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
 })

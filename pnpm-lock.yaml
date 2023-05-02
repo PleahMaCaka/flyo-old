@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@pleahmacaka/logger':
+    specifier: ^3.0.3
+    version: 3.0.3
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -299,6 +302,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@pleahmacaka/logger@3.0.3:
+    resolution: {integrity: sha512-1hIVhQ8k7OA7eEbtycU4dz64qHYRwvD8BLrRSOn7A6ACbpfvhaG+JmOFVteGR3eDFfu271GlRfAd5gcqfJRCAQ==}
+    dev: false
 
   /@sindresorhus/is@4.6.0:
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
