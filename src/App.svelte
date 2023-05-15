@@ -7,13 +7,13 @@
 
   <div class="row">
     <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
+      <img alt="Vite Logo" class="logo vite" src="/vite.svg" />
     </a>
     <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
+      <img alt="Tauri Logo" class="logo tauri" src="/tauri.svg" />
     </a>
     <a href="https://svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte" alt="Svelte Logo" />
+      <img alt="Svelte Logo" class="logo svelte" src="/svelte.svg" />
     </a>
   </div>
 
