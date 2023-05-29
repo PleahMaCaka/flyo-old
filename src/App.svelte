@@ -1,5 +1,28 @@
 <script lang="ts">
-  import Greet from './lib/Greet.svelte'
+  import Greet from './lib/components/Greet.svelte'
+  import {isRegistered, register} from "@tauri-apps/api/globalShortcut"
+  import {onMount} from "svelte"
+  import {appWindow} from "@tauri-apps/api/window";
+
+  onMount(async () => {
+    console.log("Registering shortcuts")
+    if (!await isRegistered('CommandOrControl+`')) {
+      console.log("Registering shortcut")
+      await register('CommandOrControl+`', async () => {
+        await appWindow.isVisible().then(isVisible => {
+          if (isVisible) {
+            appWindow.hide()
+          } else {
+            appWindow.show()
+          }
+        })
+        console.log('Shortcut triggered');
+      });
+    } else {
+      console.log("Shortcut already registered")
+    }
+  })
+
 </script>
 
 <main class="container">

@@ -11,7 +11,17 @@
     "version": "0.0.0"
   },
   "tauri": {
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
     "allowlist": {
+      "window": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": true
+      },
       "all": false,
       "shell": {
         "all": false,
@@ -39,7 +49,7 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
+        "resizable": false,
         "title": "flyo",
         "width": 800,
         "height": 600,
